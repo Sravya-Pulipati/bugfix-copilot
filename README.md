@@ -49,6 +49,101 @@ python manage.py runserver
 
 ---
 
+## 🐍 Virtual Environment Setup (Windows)
+
+This project uses a Python virtual environment (`venv`) to manage dependencies. Follow these steps to set it up correctly.
+
+---
+
+### 🔹 1. Create Virtual Environment
+
+```bash
+python -m venv venv
+```
+
+---
+
+### 🔹 2. Activate Virtual Environment
+
+#### ▶️ For PowerShell:
+
+```bash
+venv\Scripts\Activate.ps1
+```
+
+#### ▶️ For Git Bash:
+
+```bash
+source venv/Scripts/activate
+```
+
+---
+
+### 🔹 3. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+### 🔹 4. Run the Server
+
+```bash
+python manage.py runserver
+```
+
+---
+
+## ⚠️ Common Issues & Fixes
+
+### ❌ Issue: `No module named django`
+
+👉 Fix:
+
+* Ensure virtual environment is activated
+* Reinstall dependencies:
+
+```bash
+pip install django djangorestframework
+```
+
+---
+
+### ❌ Issue: `Permission denied: venv\Scripts\python.exe`
+
+👉 Fix:
+
+* Your virtual environment is corrupted
+* Delete and recreate:
+
+```bash
+deactivate
+rm -rf venv   # or manually delete folder
+python -m venv venv
+```
+
+---
+
+### ❌ Issue: Activation script blocked (PowerShell)
+
+👉 Fix:
+
+```bash
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned
+```
+
+---
+
+## 💡 Best Practices
+
+* Always activate `venv` before running the project
+* Do NOT create a virtual environment inside another active `venv`
+* Do NOT commit `venv/` to GitHub (already ignored in `.gitignore`)
+
+---
+
+
 ## 🔌 API Usage
 
 ### Endpoint:
