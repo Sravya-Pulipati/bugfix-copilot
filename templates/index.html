@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BugFix Copilot</title>
+    <style>
+        body { font-family: Arial; margin: 40px; }
+        button { padding: 10px; margin: 10px; }
+        pre { background: #f4f4f4; padding: 15px; }
+    </style>
+</head>
+<body>
+
+    <h1>🐞 BugFix Copilot</h1>
+
+    <button onclick="generateError()">Generate Error</button>
+    <button onclick="analyzeLogs()">Analyze Logs</button>
+
+    <h3>Response:</h3>
+    <pre id="output"></pre>
+
+    <script>
+        function generateError() {
+            fetch('/generate-error/')
+                .then(res => res.json())
+                .then(data => {
+                    document.getElementById('output').innerText = JSON.stringify(data, null, 2);
+                });
+        }
+
+        function analyzeLogs() {
+            fetch('/auto-analyze/')
+                .then(res => res.json())
+                .then(data => {
+                    document.getElementById('output').innerText = JSON.stringify(data, null, 2);
+                });
+        }
+    </script>
+
+</body>
+</html>

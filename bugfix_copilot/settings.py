@@ -56,7 +56,7 @@ ROOT_URLCONF = 'bugfix_copilot.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -119,3 +119,25 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 OPENAI_API_KEY = "your_openai_api_key_here"
+
+import os
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+
+    'handlers': {
+        'file': {
+            'level': 'ERROR',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'app.log'),
+        },
+    },
+
+    'loggers': {
+        '': {  
+            'handlers': ['file'],
+            'level': 'ERROR',
+        },
+    },
+}

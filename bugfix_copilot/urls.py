@@ -16,8 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from analyzer.views import analyze_bug  
+from analyzer.views import analyze_bug, generate_error, auto_analyze, home
 urlpatterns = [
+    path('', home),
     path('admin/', admin.site.urls),
     path('analyze/', analyze_bug),
+    path('auto-analyze/', auto_analyze),
+    path('generate-error/', generate_error)
 ]
