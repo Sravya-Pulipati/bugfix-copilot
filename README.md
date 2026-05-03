@@ -274,18 +274,6 @@ python -m venv venv
 
 ---
 
-## 🎯 Resume Value
-
-This project demonstrates:
-
-* Backend system design
-* Real-time log processing
-* API development
-* Performance optimization (reuse via similarity)
-* Production-like architecture
-
----
-
 ## 💡 Motivation
 
 To reduce debugging time by automating log analysis and prioritizing critical issues using intelligent systems.
