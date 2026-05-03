@@ -1,8 +1,11 @@
 from django.db import models
 
-# Create your models here.
-
 class BugLog(models.Model):
     raw_log = models.TextField()
-    parsed_error = models.TextField(blank=True)
-    created_at = models.DateTimeField(auto_now_add=True)
+    parsed_error = models.TextField()
+    ai_analysis = models.JSONField(null=True, blank=True)
+
+    def __str__(self):
+        return self.parsed_error
+    
+severity = models.CharField(max_length=10, default="LOW")

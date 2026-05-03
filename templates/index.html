@@ -28,12 +28,24 @@
         }
 
         function analyzeLogs() {
-            fetch('/auto-analyze/')
-                .then(res => res.json())
-                .then(data => {
-                    document.getElementById('output').innerText = JSON.stringify(data, null, 2);
-                });
-        }
+    fetch('/auto-analyze/')
+        .then(res => res.json())
+        .then(data => {
+            const output = document.getElementById('output');
+
+            // Show JSON
+            output.innerText = JSON.stringify(data, null, 2);
+
+            // 🔥 Apply severity color
+            if (data.severity === "HIGH") {
+                output.style.color = "red";
+            } else if (data.severity === "MEDIUM") {
+                output.style.color = "orange";
+            } else {
+                output.style.color = "green";
+            }
+        });
+}
     </script>
 
 </body>
